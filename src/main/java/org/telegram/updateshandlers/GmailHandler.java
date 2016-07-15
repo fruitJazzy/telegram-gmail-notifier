@@ -141,12 +141,7 @@ public class GmailHandler extends TelegramLongPollingBot {
 
 
     private static String parseMessageFromMail(String message) throws IOException {
-        if (message.length() > 4096) {
-            String buf = message.replaceAll("<|>|/|div|br|span|style|&gt;|font-size:12.8px|&#39;|&quot;|&lt;|=\"\"","");
-            String fstr = buf.split("Failed tests:")[1];
-            return fstr.split("INFO")[0];
-        }
-        return message;
+        return message.replaceAll("<|>|/|div|br|span|style|&gt;|font-size:12.8px|&#39;|&quot;|&lt;|=\"\"","");
     }
 
 }
